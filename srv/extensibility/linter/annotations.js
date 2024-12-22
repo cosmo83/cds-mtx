@@ -127,7 +127,7 @@ module.exports = class AnnotationsChecker {
 
   _checkExtensionAnnotation(annotation, extCsn, fullCsn, dir, allowList) {
 
-    const entityOrService = annotation.element.annotate ?? annotation.parent?.annotate ?? annotation.parent?.extend
+    const entityOrService = annotation.element.annotate ?? annotation.element.extend ?? annotation.parent?.annotate ?? annotation.parent?.extend
 
     if (!extCsn.definitions[entityOrService]) {
       const annotationName = Object.getOwnPropertyNames(annotation.element).filter(property => property.startsWith('@'))
